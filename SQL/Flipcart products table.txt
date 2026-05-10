@@ -49,14 +49,36 @@ where category='Electronics';
 
 #3) Group products by category. Show each category once.
 
+select category from products
+group by category;
 
 
 #4) Show categories that have more than 1 product.
 
+select category, COUNT(*) from products
+group by category
+having COUNT(*)>1;
+
+
 #5) Show all products sorted by price in ascending order.
+
+select * from products
+order by  price asc;
+
 
 #6) Show only the first 3 products from the table.
 
+select * from products
+limit 3;
+
+
 #7) Show product name as "Item_Name" and price as "Item_Price".
 
+select name as item_name, price as item_price from products;
+
+
 #8) Show all the unique categories from the products table
+
+SELECT DISTINCT category FROM products;
+
+
