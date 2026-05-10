@@ -34,4 +34,29 @@ select * from products;
 
 
 
-sfbnjxckk
+Test 1 Basics :
+
+#1) display name and price of all table.
+
+select name, price from products;
+
+
+#2) Show all products where the category is 'Electronics'.
+
+select * from products
+where category='Electronics';
+
+
+#3) Group products by category. Show each category once.
+
+
+
+#4) Show categories that have more than 1 product.
+
+#5) Show all products sorted by price in ascending order.
+
+#6) Show only the first 3 products from the table.
+
+#7) Show product name as "Item_Name" and price as "Item_Price".
+
+#8) Show all the unique categories from the products table
