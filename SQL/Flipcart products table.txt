@@ -82,3 +82,41 @@ select name as item_name, price as item_price from products;
 SELECT DISTINCT category FROM products;
 
 
+
+
+#Test 2 : clauses n aggregation 
+
+
+#1) Display the name and price of the cheapest product in the entire table.
+
+select name, price from products
+where price=(select min(price) from products);
+
+
+#2) Find the average price of products that belong to the 'Home & Kitchen' or 'Fitness' category.
+
+select round(avg(price),2) from products 
+where category in ('Fitness','Home & Kitchen');
+
+
+#3) Show product names and stock quantity where: the product is available, stock is more than 50, and price is not equal to ₹299.
+
+select name,stock_quantity from products
+where is_available='yes' and stock_quantity>50 and not price=299;
+
+
+#4) Find the most expensive product in each category (name and price).
+
+select category,max(price) as max_price from products
+group by category;
+
+
+#5) Show all unique categories in uppercase, sorted in descending order.
+
+select distinct upper(category) as new_cat from products
+order by new_cat desc;
+
+
+
+
+
