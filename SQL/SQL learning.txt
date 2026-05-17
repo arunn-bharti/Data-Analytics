@@ -152,3 +152,49 @@ select concat_ws(' ',name,category,price) from products;
 select trim('   hey arun');
 
 select replace(sku_code,left(sku_code,2),'GG') from products;
+
+
+
+/*Alter Commands  */
+
+Create database DB1_Alt;
+
+create table workers(
+name varchar(50) primary key,
+age bigint
+);
+
+alter table workers
+add column mobile bigint;
+
+insert into workers(name,age,mobile)
+values('Arun',20,8000450949),('Dev',23,7498754438);
+
+alter table workers
+rename column mobile to phone;
+
+
+alter table workers
+alter column phone type varchar(10);
+
+
+
+alter table workers
+alter column age set default 18;
+
+alter table workers
+alter column age drop default;
+
+alter table workers
+add constraint chech_age check(age>=0); 
+
+alter table workers
+drop constraint chech_age;
+
+alter table workers
+drop column phone;
+
+alter table workers
+rename to worker;
+
+select * from worker; 
