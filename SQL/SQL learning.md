@@ -342,3 +342,59 @@ RENAME TO worker;
 ```sql
 SELECT * FROM worker;
 ```
+
+---
+
+# CASE Statements
+
+## Temporary Column Using CASE
+
+```sql
+SELECT 
+    name,
+    is_available,
+    CASE 
+        WHEN is_available = 'yes' THEN 'In stock'
+        ELSE 'Out of stock'
+    END AS availability_status
+FROM products;
+```
+
+---
+
+## Stock Label Classification
+
+```sql
+SELECT 
+    name,
+    stock_quantity,
+    CASE 
+        WHEN stock_quantity >= 100 THEN 'High stock'
+        WHEN stock_quantity BETWEEN 50 AND 100 THEN 'Medium stock'
+        ELSE 'Low stock'
+    END AS label
+FROM products;
+```
+
+---
+
+# Permanent Column Using ALTER + UPDATE
+
+## Add New Column
+
+```sql
+ALTER TABLE products
+ADD COLUMN price_tag TEXT;
+```
+
+## Update Column Values Using CASE
+
+```sql
+UPDATE products
+SET price_tag =
+CASE 
+    WHEN price >= 1000 THEN 'expensive'
+    WHEN price BETWEEN 500 AND 1000 THEN 'average'
+    ELSE 'cheap'
+END;
+```
