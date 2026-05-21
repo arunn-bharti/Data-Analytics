@@ -1,4 +1,4 @@
-# SQL Practice of CRUD Operations
+# SQL CRUD Operations
 
 ---
 
